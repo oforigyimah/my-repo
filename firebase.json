@@ -1,0 +1,24 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "**/Release",
+        "headers": [ { "key": "Content-Type", "value": "text/plain" } ]
+      },
+      {
+        "source": "**/InRelease",
+        "headers": [ { "key": "Content-Type", "value": "text/plain" } ]
+      },
+      {
+        "source": "**/Packages",
+        "headers": [ { "key": "Content-Type", "value": "text/plain" } ]
+      }
+    ]
+  }
+}

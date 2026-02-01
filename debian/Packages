@@ -1,0 +1,17 @@
+Package: shapet
+Version: 0.0.1
+Architecture: amd64
+Maintainer: support@shapet.com
+Installed-Size: 616962
+Depends: libc6, libstdc++6, ocl-icd-libopencl1 | libopencl1
+Suggests: libpq5, libqt6sql6-psql
+Filename: ./shapet_0.0.1_amd64.deb
+Size: 96439924
+MD5sum: f2e16636cedcf8c353c9e829d8596fe4
+SHA1: 69a8f8056469a9d8980dff58761c8aadcf3bf631
+SHA256: 1b3ace78f506d9aa508d6441103c84cc886b2cfc828f6e06740e161a8c5d21c4
+Section: utils
+Priority: optional
+Description: GPU SHA256 chain cracker and benchmark (OpenCL)
+ Shapet is a high-performance OpenCL-based GPU utility for SHA256 chain cracking. It provides benchmarking, chain attack mode, and a Qt6/QML GUI.
+
