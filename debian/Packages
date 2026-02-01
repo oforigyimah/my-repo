@@ -1,15 +1,15 @@
 Package: shapet
-Version: 0.0.1
+Version: 0.0.02
 Architecture: amd64
 Maintainer: support@shapet.com
-Installed-Size: 616962
+Installed-Size: 616956
 Depends: libc6, libstdc++6, ocl-icd-libopencl1 | libopencl1
 Suggests: libpq5, libqt6sql6-psql
-Filename: ./shapet_0.0.1_amd64.deb
-Size: 96439924
-MD5sum: f2e16636cedcf8c353c9e829d8596fe4
-SHA1: 69a8f8056469a9d8980dff58761c8aadcf3bf631
-SHA256: 1b3ace78f506d9aa508d6441103c84cc886b2cfc828f6e06740e161a8c5d21c4
+Filename: ./shapet_0.0.02_amd64.deb
+Size: 96434810
+MD5sum: 81ded62a8079bad3ccf1cd9bf6d3e2ba
+SHA1: c599e2dd2b67556307f31a66cb525764434cf6f4
+SHA256: 22ada0d22319e7202972ab6e3e77f4d1bb73053e7e7c0254d5dbdb774e77449a
 Section: utils
 Priority: optional
 Description: GPU SHA256 chain cracker and benchmark (OpenCL)
