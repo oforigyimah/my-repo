@@ -1,31 +1,19 @@
-#!/bin/sh
-# Dynamic Shapet installer
+#!/usr/bin/env bash
+set -euo pipefail
 
-set -e
+echo "Adding shapet GPG key..."
+wget -qO - https://oforigyimah.github.io/my-repo/debian/public.key \
+  | gpg --dearmor \
+  | sudo tee /usr/share/keyrings/shapet-archive-keyring.gpg >/dev/null
 
-REPO_URL="https://repo.ofori.dev"
+echo "Adding shapet APT source..."
+echo "deb [signed-by=/usr/share/keyrings/shapet-archive-keyring.gpg] https://oforigyimah.github.io/my-repo/debian ./" \
+  | sudo tee /etc/apt/sources.list.d/shapet.list
 
-echo "Fetching latest Shapet version info..."
-PACKAGES_TXT=$(curl -fsSL "$REPO_URL/Packages")
+echo "Updating package lists..."
+sudo apt update
 
-# Extract the Filename line of the first 'Package: shapet' entry
-DEB_PATH=$(echo "$PACKAGES_TXT" | awk '/^Package: shapet/{flag=1} flag && /^Filename: /{print $2; exit}')
+echo "Installing shapet..."
+sudo apt install -y shapet
 
-if [ -z "$DEB_PATH" ]; then
-    echo "Error: Could not find shapet package in the repo!"
-    exit 1
-fi
-
-DEB_URL="$REPO_URL/$DEB_PATH"
-TMP_DEB=$(mktemp -t shapet_XXXXXX.deb)
-
-echo "Downloading $DEB_URL..."
-curl -fSL "$DEB_URL" -o "$TMP_DEB"
-
-echo "Installing Shapet..."
-sudo dpkg -i "$TMP_DEB" || sudo apt-get install -f -y
-
-echo "Cleaning up..."
-rm -f "$TMP_DEB"
-
-echo "Shapet installation complete!"
+echo "shapet installation complete."
